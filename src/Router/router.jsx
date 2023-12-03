@@ -34,6 +34,8 @@ import ButtonTemplates from '../templates/ButtonTemplates';
 import SingleProductItem from '../templates/SingleProductItem';
 import PopularProducts from '../templates/PopularProducts';
 import Testimonials from '../templates/Testimonials';
+import Bag1 from '../templates/pages/Bag1';
+import Watch1 from '../templates/pages/Watch1.jsx/Watch1';
 
 const router = createBrowserRouter([
   {
@@ -75,24 +77,6 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />,
-      },
-
-      //templates
-      {
-        path: '/templates/buttons',
-        element: <ButtonTemplates />,
-      },
-      {
-        path: '/templates/single-product-item',
-        element: <SingleProductItem />,
-      },
-      {
-        path: '/templates/popular-products',
-        element: <PopularProducts />,
-      },
-      {
-        path: '/templates/testimonials',
-        element: <Testimonials />,
       },
     ],
   },
@@ -170,6 +154,40 @@ const router = createBrowserRouter([
         element: <EditBlog />,
         loader: ({ params }) =>
           fetch(`http://localhost:1000/api/v1/allblogs/${params.id}`),
+      },
+    ],
+  },
+
+  //templates
+  {
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      {
+        path: '/templates/buttons',
+        element: <ButtonTemplates />,
+      },
+      {
+        path: '/templates/single-product-item',
+        element: <SingleProductItem />,
+      },
+      {
+        path: '/templates/popular-products',
+        element: <PopularProducts />,
+      },
+      {
+        path: '/templates/testimonials',
+        element: <Testimonials />,
+      },
+
+      // pages
+      {
+        path: '/templates/pages/bag1',
+        element: <Bag1 />,
+      },
+      {
+        path: '/templates/pages/watch1',
+        element: <Watch1 />,
       },
     ],
   },
